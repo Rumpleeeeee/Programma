@@ -15,19 +15,7 @@ public:
         int row = 0;
         int col = 0;
         row = array.size();
-        col = array[0].size();
-        
-/*        for(int i = 0; i < row; i++){
-            for(int j = 0; j < col; j++){
-                if(array[i][j] == target){
-                   flag = 1;
-                   break;
-                }
-            }                        
-            if(flag == 1)
-            break;  
-        }
-*/      
+        col = array[0].size();    
         int Crow = 0;
         int Ccol = col-1;
         while(Crow < row && Ccol >= 0){
