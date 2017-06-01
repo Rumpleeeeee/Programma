@@ -28,3 +28,37 @@ public:
         return false;
     }
 };
+
+
+/*
+P2-替换
+
+时间限制：1秒 空间限制：32768K 热度指数：272898
+
+题目描述
+请实现一个函数，将一个字符串中的空格替换成“%20”。
+例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+*/
+
+class Solution {
+public:
+	void replaceSpace(char *str,int length) {
+		if(str == NULL || length <= 0)return;
+        int num_N = 0;
+        int NewLength = 0;
+        for(int i = 0; i < length; i++)
+            if(str[i] == ' ')num_N++;
+        NewLength = length + num_N * 2;
+        
+        for(int i = length; i >= 0; i--){
+            if(str[i] == ' '){
+                str[NewLength--] = '0';
+                str[NewLength--] = '2';
+                str[NewLength--] = '%';
+            }
+            else
+                str[NewLength--] = str[i];
+        }
+
+	}
+};
