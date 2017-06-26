@@ -62,3 +62,36 @@ public:
 
 	}
 };
+
+
+/*
+P3-从头到尾打印链表
+时间限制：1秒 空间限制：32768K 热度指数：245185
+题目描述
+输入一个链表，从尾到头打印链表每个节点的值
+*/
+
+/**
+*  struct ListNode {
+*        int val;
+*        struct ListNode *next;
+*        ListNode(int x) :
+*              val(x), next(NULL) {
+*        }
+*  };
+*/
+class Solution {
+public:
+    vector<int> printListFromTailToHead(ListNode* head) {
+        vector<int> value;
+        ListNode* pNode = head;
+        while(pNode!=NULL)
+            {
+            value.push_back(pNode->val);
+            pNode = pNode->next;
+        }
+	//翻转vector；
+    reverse(value.begin(), value.end()); 
+        return value;
+    }
+};
