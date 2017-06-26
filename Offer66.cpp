@@ -95,3 +95,41 @@ public:
         return value;
     }
 };
+
+
+/*
+P4-使用两个栈实现队列
+时间限制：1秒 空间限制：32768K 热度指数：108921
+题目描述
+用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
+*/
+
+class Solution
+{
+public:
+    void push(int node) 
+    {
+        stack1.push(node);
+    }
+
+    int pop() 
+    {
+        if (stack1.size() == 0 && stack2.size() == 0)
+            printf("queue is empty");
+        else if (stack2.size() == 0)
+        {
+            while(stack1.size()>0)
+            {
+                stack2.push(stack1.top());
+                stack1.pop();
+            }
+        }
+        int data = stack2.top();
+        stack2.pop();
+        return data;
+    }
+
+private:
+    stack<int> stack1;
+    stack<int> stack2;
+};
